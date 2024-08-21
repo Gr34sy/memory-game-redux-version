@@ -1,5 +1,11 @@
+import styles from "./homepage.module.css";
+
 const Homepage = () => {
-  return <div>Home</div>;
+  return (
+    <main className={styles.homepage}>
+      <div>Home</div>
+    </main>
+  );
 };
 
 export default Homepage;
