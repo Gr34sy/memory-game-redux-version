@@ -1,7 +1,5 @@
 .gamefield {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
 
   color: var(--color-white);
   transition: 0.3s ease-in-out;

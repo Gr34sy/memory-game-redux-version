@@ -1,4 +1,4 @@
-import GameField from "../../components/game/game-field/GameField";
+import GameBoard from "../../components/game/game-board/GameBoard";
 import styles from "./homepage.module.css";
 
 const Homepage = () => {
@@ -6,9 +6,9 @@ const Homepage = () => {
     <main className={styles.homepage}>
       <div>Home</div>
 
-      <div className={styles["test-wrapper"]}>
-        <GameField content="1" size="big" status="active" />
-      </div>
+
+        <GameBoard grid="g4" />
+
     </main>
   );
 };
