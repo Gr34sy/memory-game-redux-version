@@ -1,4 +1,4 @@
-import Button from "../../components/button/Button";
+import GameField from "../../components/game/game-field/GameField";
 import styles from "./homepage.module.css";
 
 const Homepage = () => {
@@ -7,9 +7,7 @@ const Homepage = () => {
       <div>Home</div>
 
       <div className={styles["test-wrapper"]}>
-        <Button buttonType="primary" onClick={() => console.log("click")}>
-          Test
-        </Button>
+        <GameField content="1" size="big" status="active" />
       </div>
     </main>
   );

@@ -3,5 +3,10 @@
 }
 
 .test-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: min(100% - 2rem, 400px);
+  margin-inline: auto;
 }

@@ -1,0 +1,36 @@
+.gamefield {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+
+  color: var(--color-white);
+  transition: 0.3s ease-in-out;
+}
+
+.gamefield.small {
+  font-size: 2.2rem;
+}
+.gamefield.big {
+  font-size: 3.1rem;
+}
+
+/* undiscovered status */
+.gamefield.undiscovered {
+  background-color: var(--color-dark-blue);
+}
+.gamefield.undiscovered:hover {
+  cursor: pointer;
+  background-color: var(--color-orange);
+}
+
+/* active status */
+.gamefield.active {
+  cursor: default;
+  background-color: var(--color-orange);
+}
+
+/* disabled status */
+.gamefield.disabled {
+  cursor: default;
+  background-color: var(--color-grey);
+}
