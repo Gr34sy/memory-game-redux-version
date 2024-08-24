@@ -1,17 +1,26 @@
 .gameboard {
   display: grid;
 
-  width: min(100% - 2rem, 1100px);
   margin-inline: auto;
+  gap: 5px;
+}
+
+.gameboard > * {
+  aspect-ratio: 1;
 }
 
 .gameboard.g4 {
+  width: min(100% - 1.5rem, 400px);
+
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 20px;
 }
 .gameboard.g6 {
+  width: min(100% - 1.5rem, 600px);
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 10px;
+}
+
+@media (min-width: 400px) {
+  .gameboard {
+    gap: 10px;
+  }
 }

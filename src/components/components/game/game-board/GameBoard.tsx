@@ -13,11 +13,35 @@ const GameBoard = ({ grid }: GameBoardProps) => {
   return (
     <div className={`${styles.gameboard} ${styles[grid]}`}>
       <GameField size={fieldSize} content="1" status="active" />
-      <GameField size={fieldSize} content="3" status="disabled" />
-      <GameField size={fieldSize} content="3" status="disabled" />
+      <GameField
+        size={fieldSize}
+        content="fa-solid fa-hand-spock"
+        status="disabled"
+      />
+      <GameField
+        size={fieldSize}
+        content="fa-solid fa-hand-spock"
+        status="disabled"
+      />
       <GameField size={fieldSize} content="1" status="active" />
       <GameField size={fieldSize} content="2" status="undiscovered" />
       <GameField size={fieldSize} content="2" status="undiscovered" />
+      <GameField size={fieldSize} content="4" status="undiscovered" />
+      <GameField size={fieldSize} content="4" status="undiscovered" />
+      <GameField size={fieldSize} content="fa-solid fa-car" status="disabled" />
+      <GameField size={fieldSize} content="fa-solid fa-car" status="disabled" />
+      <GameField
+        size={fieldSize}
+        content="fa-solid fa-anchor"
+        status="disabled"
+      />
+      <GameField
+        size={fieldSize}
+        content="fa-solid fa-anchor"
+        status="disabled"
+      />
+      <GameField size={fieldSize} content="4" status="undiscovered" />
+      <GameField size={fieldSize} content="4" status="undiscovered" />
       <GameField size={fieldSize} content="4" status="undiscovered" />
       <GameField size={fieldSize} content="4" status="undiscovered" />
     </div>

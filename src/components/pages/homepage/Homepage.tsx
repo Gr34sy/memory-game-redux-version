@@ -6,9 +6,7 @@ const Homepage = () => {
     <main className={styles.homepage}>
       <div>Home</div>
 
-
-        <GameBoard grid="g4" />
-
+      <GameBoard grid="g4" />
     </main>
   );
 };

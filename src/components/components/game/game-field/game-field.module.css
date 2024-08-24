@@ -3,13 +3,44 @@
 
   color: var(--color-white);
   transition: 0.3s ease-in-out;
+  padding: 0.2em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gamefield.small {
-  font-size: 2.2rem;
+  font-size: 1.3rem;
 }
 .gamefield.big {
-  font-size: 3.1rem;
+  font-size: 1.9rem;
+}
+
+@media (min-width: 300px) {
+  .gamefield.small {
+    font-size: 1.5rem;
+  }
+  .gamefield.big {
+    font-size: 2.2rem;
+  }
+}
+@media (min-width: 425px) {
+  .gamefield.small {
+    font-size: 2.1rem;
+  }
+  .gamefield.big {
+    font-size: 3.1rem;
+  }
+}
+@media (min-width: 600px) {
+  .gamefield.small {
+    font-size: 2.7rem;
+  }
+
+  .gamefield.big {
+    font-size: 3.4rem;
+  }
 }
 
 /* undiscovered status */
