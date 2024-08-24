@@ -5,45 +5,26 @@ import GameField from "../game-field/GameField";
 
 type GameBoardProps = {
   grid: "g4" | "g6";
+  fields: string[];
 };
 
-const GameBoard = ({ grid }: GameBoardProps) => {
+const GameBoard = ({ grid, fields }: GameBoardProps) => {
   const fieldSize = grid === "g6" ? "small" : "big";
+
+  const fieldsToRender = grid === "g4" ? fields.slice(0, 8) : fields;
+
+  function renderFields(array: string[]) {
+    return array.map((item: string, i: number) => {
+      return (
+        <GameField size={fieldSize} content={item} status="disabled" key={i} />
+      );
+    });
+  }
 
   return (
     <div className={`${styles.gameboard} ${styles[grid]}`}>
-      <GameField size={fieldSize} content="1" status="active" />
-      <GameField
-        size={fieldSize}
-        content="fa-solid fa-hand-spock"
-        status="disabled"
-      />
-      <GameField
-        size={fieldSize}
-        content="fa-solid fa-hand-spock"
-        status="disabled"
-      />
-      <GameField size={fieldSize} content="1" status="active" />
-      <GameField size={fieldSize} content="2" status="undiscovered" />
-      <GameField size={fieldSize} content="2" status="undiscovered" />
-      <GameField size={fieldSize} content="4" status="undiscovered" />
-      <GameField size={fieldSize} content="4" status="undiscovered" />
-      <GameField size={fieldSize} content="fa-solid fa-car" status="disabled" />
-      <GameField size={fieldSize} content="fa-solid fa-car" status="disabled" />
-      <GameField
-        size={fieldSize}
-        content="fa-solid fa-anchor"
-        status="disabled"
-      />
-      <GameField
-        size={fieldSize}
-        content="fa-solid fa-anchor"
-        status="disabled"
-      />
-      <GameField size={fieldSize} content="4" status="undiscovered" />
-      <GameField size={fieldSize} content="4" status="undiscovered" />
-      <GameField size={fieldSize} content="4" status="undiscovered" />
-      <GameField size={fieldSize} content="4" status="undiscovered" />
+      {renderFields(fieldsToRender)}
+      {renderFields(fieldsToRender)}
     </div>
   );
 };

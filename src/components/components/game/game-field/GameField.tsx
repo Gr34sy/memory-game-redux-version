@@ -2,7 +2,6 @@
 import styles from "./game-field.module.css";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandSpock } from "@fortawesome/free-solid-svg-icons";
 
 type GameFieldProps = {
   size: "small" | "big";
@@ -13,7 +12,8 @@ type GameFieldProps = {
 const GameField = ({ size, content, status }: GameFieldProps) => {
   const isIconNeeded = content.startsWith("fa");
   const renderedContent = isIconNeeded ? (
-    <FontAwesomeIcon icon={faHandSpock} />
+    // @ts-ignore
+    <FontAwesomeIcon icon={content} />
   ) : (
     content
   );

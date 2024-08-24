@@ -11,7 +11,7 @@
 }
 
 .gamefield.small {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .gamefield.big {
   font-size: 1.9rem;
@@ -19,7 +19,7 @@
 
 @media (min-width: 300px) {
   .gamefield.small {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .gamefield.big {
     font-size: 2.2rem;
@@ -27,7 +27,7 @@
 }
 @media (min-width: 425px) {
   .gamefield.small {
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
   .gamefield.big {
     font-size: 3.1rem;
