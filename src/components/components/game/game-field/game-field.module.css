@@ -49,7 +49,7 @@
 }
 .gamefield.undiscovered:hover {
   cursor: pointer;
-  background-color: var(--color-orange);
+  background-color: var(--color-blue);
 }
 
 /* active status */

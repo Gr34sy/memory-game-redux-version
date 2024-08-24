@@ -16,7 +16,12 @@ const GameBoard = ({ grid, fields }: GameBoardProps) => {
   function renderFields(array: string[]) {
     return array.map((item: string, i: number) => {
       return (
-        <GameField size={fieldSize} content={item} status="disabled" key={i} />
+        <GameField
+          size={fieldSize}
+          content={item}
+          status="undiscovered"
+          key={i}
+        />
       );
     });
   }
