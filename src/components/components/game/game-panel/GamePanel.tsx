@@ -8,7 +8,7 @@ const GamePanel = () => {
       <PlayerTile name="Lukoki" pairs={2} isActive />
       <PlayerTile name="Andreas" pairs={2} />
       <PlayerTile name="Jan" pairs={3} />
-      <PlayerTile name="Fassnacht" pairs={0}  />
+      <PlayerTile name="Christian Fassnacht Alderweilerd" pairs={0} />
     </div>
   );
 };

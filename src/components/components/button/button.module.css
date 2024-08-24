@@ -6,7 +6,7 @@
   border: none;
   border-radius: 35px;
   transition: 0.3s linear;
-  padding: 0.2em 1em;
+  padding: 0.6em 1.2em;
 }
 .button:hover {
   cursor: pointer;

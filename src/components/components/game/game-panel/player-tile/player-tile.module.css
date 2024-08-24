@@ -2,13 +2,11 @@
   background-color: var(--color-whitesmoke);
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6em;
+  flex-direction: column;
 
   font-size: 1rem;
   border-radius: 0.6rem;
-  padding: 1em;
+  padding: 0.5em;
 
   cursor: default;
 }
@@ -20,14 +18,6 @@
 }
 .name--short {
   display: block;
-}
-@media (min-width: 600px) {
-  .name {
-    display: block;
-  }
-  .name--short {
-    display: none;
-  }
 }
 
 .pairs {
@@ -59,18 +49,44 @@
   border-bottom: 1em solid var(--color-orange);
 }
 
-/* label under active player */
-.player-tile.active::after {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 100%);
+/* media queries */
+@media (min-width: 450px) {
+  .player-tile {
+    padding: 1em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6em;
+  }
+}
 
-  content: "current turn";
-  color: var(--color-black);
-  font-size: 0.7rem;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  padding-top: 0.6em;
+@media (min-width: 720px) {
+  .name {
+    display: block;
+  }
+  .name--short {
+    display: none;
+  }
+
+  /* label under active player */
+  .player-tile.active::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    content: "current turn";
+    color: var(--color-black);
+    font-size: 0.7rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    padding-top: 0.6em;
+  }
+}
+
+@media (max-width: 450px) {
+  .pairs {
+    text-align: center;
+  }
 }
