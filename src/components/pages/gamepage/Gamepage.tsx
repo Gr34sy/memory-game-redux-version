@@ -7,14 +7,14 @@ import GameBoard from "../../components/game/game-board/GameBoard";
 import GamePanel from "../../components/game/game-panel/GamePanel";
 
 // icons
-import polishPolitcsIcons from "../../../lib/icon-sets/polish-politics";
+import natureIcons from "../../../lib/icon-sets/nature";
 
 const Gamepage = () => {
   return (
     <main className={styles.gamepage}>
       <Navbar />
 
-      <GameBoard grid="g4" fields={polishPolitcsIcons} />
+      <GameBoard grid="g6" fields={natureIcons} />
       <GamePanel />
     </main>
   );

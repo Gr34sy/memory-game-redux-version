@@ -20,11 +20,23 @@ const GameBoard = ({ grid, fields }: GameBoardProps) => {
       );
     });
   }
+  function renderUndiscoveredFields(array: string[]) {
+    return array.map((item: string, i: number) => {
+      return (
+        <GameField
+          size={fieldSize}
+          content={item}
+          status="undiscovered"
+          key={i}
+        />
+      );
+    });
+  }
 
   return (
     <div className={`${styles.gameboard} ${styles[grid]}`}>
       {renderFields(fieldsToRender)}
-      {renderFields(fieldsToRender)}
+      {renderUndiscoveredFields(fieldsToRender)}
     </div>
   );
 };
