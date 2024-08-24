@@ -1,7 +1,7 @@
 // styles
 import styles from "./game-board.module.css";
 // components
-import GameField from "../game-field/GameField";
+import GameField from "./game-field/GameField";
 
 type GameBoardProps = {
   grid: "g4" | "g6";
@@ -16,12 +16,7 @@ const GameBoard = ({ grid, fields }: GameBoardProps) => {
   function renderFields(array: string[]) {
     return array.map((item: string, i: number) => {
       return (
-        <GameField
-          size={fieldSize}
-          content={item}
-          status="undiscovered"
-          key={i}
-        />
+        <GameField size={fieldSize} content={item} status="disabled" key={i} />
       );
     });
   }

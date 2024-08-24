@@ -1,0 +1,9 @@
+.game-layout {
+  width: min(100% - 1rem, 1400px);
+  margin-inline: auto;
+
+  display: grid;
+  gap: 7rem;
+
+  padding-bottom: 5.5rem;
+}

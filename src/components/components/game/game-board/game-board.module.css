@@ -2,7 +2,7 @@
   display: grid;
 
   margin-inline: auto;
-  gap: 5px;
+  gap: 0.3rem;
 }
 
 .gameboard > * {
@@ -10,17 +10,17 @@
 }
 
 .gameboard.g4 {
-  width: min(100% - 1.5rem, 400px);
+  width: min(100%, 450px);
 
   grid-template-columns: repeat(4, 1fr);
 }
 .gameboard.g6 {
-  width: min(100% - 1.5rem, 600px);
+  width: min(100%, 620px);
   grid-template-columns: repeat(6, 1fr);
 }
 
 @media (min-width: 400px) {
   .gameboard {
-    gap: 10px;
+    gap: 0.6rem;
   }
 }
