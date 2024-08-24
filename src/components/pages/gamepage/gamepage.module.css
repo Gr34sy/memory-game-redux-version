@@ -1,9 +1,10 @@
-.game-layout {
+.gamepage {
+  min-height: 95dvh;
   width: min(100% - 1rem, 1400px);
   margin-inline: auto;
+  padding-bottom: 2rem;
 
   display: grid;
-  gap: 7rem;
-
-  padding-bottom: 5.5rem;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
 }

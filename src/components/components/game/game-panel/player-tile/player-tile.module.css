@@ -13,8 +13,21 @@
   cursor: default;
 }
 
-.name {
+.name,
+.name--short {
+  display: none;
   color: var(--color-dark-grey);
+}
+.name--short {
+  display: block;
+}
+@media (min-width: 600px) {
+  .name {
+    display: block;
+  }
+  .name--short {
+    display: none;
+  }
 }
 
 .pairs {
@@ -25,10 +38,9 @@
 /* active player styling */
 .player-tile.active {
   position: relative;
-  color: var(--color-white);
   background-color: var(--color-orange);
 }
-.player-tile.active :where(.name, .pairs) {
+.player-tile.active :where(.name, .name--short, .pairs) {
   color: var(--color-white);
 }
 
@@ -57,6 +69,7 @@
   content: "current turn";
   color: var(--color-black);
   font-size: 0.7rem;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.4em;
   padding-top: 0.6em;

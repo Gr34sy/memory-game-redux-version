@@ -10,12 +10,12 @@
 }
 
 .gameboard.g4 {
-  width: min(100%, 450px);
+  width: min(100%, 480px);
 
   grid-template-columns: repeat(4, 1fr);
 }
 .gameboard.g6 {
-  width: min(100%, 620px);
+  width: min(100%, 580px);
   grid-template-columns: repeat(6, 1fr);
 }
 

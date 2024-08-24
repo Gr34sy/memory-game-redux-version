@@ -14,9 +14,9 @@ const PlayerTile = ({ name, pairs, isActive }: PlayerTileProps) => {
       className={`${styles["player-tile"]} ${isActive ? styles.active : ""}`}
     >
       <p className={styles.name}>{name}</p>
+      <p className={styles["name--short"]}>{nameShort}</p>
 
       <p className={styles.pairs}>{pairs}</p>
-      {/* <p className={styles["turn-indicator"]}>current turn</p> */}
     </div>
   );
 };
