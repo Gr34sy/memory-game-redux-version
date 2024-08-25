@@ -11,12 +11,14 @@ import natureIcons from "../../../lib/icon-sets/nature";
 
 const Gamepage = () => {
   return (
-    <main className={styles.gamepage}>
-      <Navbar />
+    <div>
+      <main className={styles.gamepage}>
+        <Navbar />
 
-      <GameBoard grid="g6" fields={natureIcons} />
-      <GamePanel />
-    </main>
+        <GameBoard grid="g6" fields={natureIcons} />
+        <GamePanel />
+      </main>
+    </div>
   );
 };
 

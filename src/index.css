@@ -9,6 +9,7 @@
   --color-white: #fcfcfc;
   --color-whitesmoke: #dfe7ec;
   --color-black: #152938;
+  --color-black-opacity: #0f171de7;
 
   /* typography */
   --font: "Atkinson Hyperlegible", sans-serif;
@@ -16,9 +17,13 @@
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
+
+  color: var(--color-black);
+  background-color: var(--color-white);
 }
 
 body {
+  position: relative;
   color: var(--color-black);
   background-color: var(--color-white);
 }
