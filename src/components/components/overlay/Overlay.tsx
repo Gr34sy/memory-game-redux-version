@@ -30,7 +30,11 @@ const Overlay = ({ children }: PropsWithChildren) => {
   }, []);
 
   return createPortal(
-    <div className={styles.overlay}>{children}</div>,
+    <div className={styles.overlay}>
+      <div className={styles["overlay-window"]}>
+        <div className={styles["overlay-padding"]}>{children}</div>
+      </div>
+    </div>,
     elRef.current
   );
 };

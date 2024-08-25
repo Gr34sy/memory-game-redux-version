@@ -1,4 +1,5 @@
 // styles
+import Overlay from "../../components/overlay/Overlay";
 import styles from "./homepage.module.css";
 
 // components
