@@ -2,7 +2,12 @@
 import styles from "./start-window.module.css";
 
 // types
-import { playerAmount, theme, board } from "../../../lib/settingsTypes";
+import {
+  playerAmount,
+  playerNames,
+  theme,
+  board,
+} from "../../../lib/settingsTypes";
 
 // components
 import Button from "../button/Button";
@@ -13,62 +18,20 @@ import SettingsBox from "./settings/settings-box/SettingsBox";
 import { useState } from "react";
 
 const StartWindow = ({ backAction }: { backAction: () => void }) => {
-  const INITIAL_PLAYERS = { p1: "" };
   const [playerAmount, setPlayerAmount] = useState<playerAmount>(1);
   const [theme, setTheme] = useState<theme>("numbers");
   const [board, setBoard] = useState<board>("g4");
 
-  const PlayerNames = () => {
-    return (
-      <>
-        <SettingsBox label="Player 1">
-          <input
-            type="text"
-            placeholder="Name"
-            name="p1"
-            maxLength={20}
-            className={styles.input}
-          />
-        </SettingsBox>
+  const INITIAL_PLAYERS = { p1: "" };
+  const [playerNames, setPlayerNames] = useState<playerNames>(INITIAL_PLAYERS);
 
-        {playerAmount > 1 && (
-          <SettingsBox label="Player 2">
-            <input
-              type="text"
-              placeholder="Name"
-              name="p2"
-              maxLength={20}
-              className={styles.input}
-            />
-          </SettingsBox>
-        )}
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
 
-        {playerAmount > 2 && (
-          <SettingsBox label="Player 3">
-            <input
-              type="text"
-              placeholder="Name"
-              name="p3"
-              maxLength={20}
-              className={styles.input}
-            />
-          </SettingsBox>
-        )}
-
-        {playerAmount > 3 && (
-          <SettingsBox label="Player 4">
-            <input
-              type="text"
-              placeholder="Name"
-              name="p4"
-              maxLength={20}
-              className={styles.input}
-            />
-          </SettingsBox>
-        )}
-      </>
-    );
-  };
+    setPlayerNames((prevNames) => {
+      return { ...prevNames, [e.target.name]: e.target.value };
+    });
+  }
 
   return (
     <form className={styles.grid}>
@@ -130,7 +93,57 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
         </Button>
       </SettingsBox>
 
-      <PlayerNames />
+      <SettingsBox label="Player 1">
+        <input
+          type="text"
+          placeholder="Name"
+          name="p1"
+          maxLength={20}
+          className={styles.input}
+          onChange={handleNameChange}
+        />
+      </SettingsBox>
+
+      {/* player names */}
+      {playerAmount > 1 && (
+        <SettingsBox label="Player 2">
+          <input
+            type="text"
+            placeholder="Name"
+            name="p2"
+            maxLength={20}
+            className={styles.input}
+            onChange={handleNameChange}
+          />
+        </SettingsBox>
+      )}
+
+      {playerAmount > 2 && (
+        <SettingsBox label="Player 3">
+          <input
+            type="text"
+            placeholder="Name"
+            name="p3"
+            maxLength={20}
+            className={styles.input}
+            onChange={handleNameChange}
+          />
+        </SettingsBox>
+      )}
+
+      {playerAmount > 3 && (
+        <SettingsBox label="Player 4">
+          <input
+            type="text"
+            placeholder="Name"
+            name="p4"
+            maxLength={20}
+            className={styles.input}
+            onChange={handleNameChange}
+          />
+        </SettingsBox>
+      )}
+      {/* player names */}
 
       <SettingsBox label="Board Size">
         <Button

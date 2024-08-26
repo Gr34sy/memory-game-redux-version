@@ -15,9 +15,9 @@ const Button = ({
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
-      {...props}
       type="button"
       className={`${styles.button} ${styles[`button--${buttonType}`]} ${isActive ? styles.active : ""}`}
+      {...props}
     >
       {children}
     </button>
