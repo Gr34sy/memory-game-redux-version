@@ -16,6 +16,7 @@ const Button = ({
   return (
     <button
       {...props}
+      type="button"
       className={`${styles.button} ${styles[`button--${buttonType}`]} ${isActive ? styles.active : ""}`}
     >
       {children}

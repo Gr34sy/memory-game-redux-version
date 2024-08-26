@@ -14,3 +14,14 @@
 .back-button:hover {
   cursor: pointer;
 }
+
+.input {
+  border: 2px solid var(--color-grey);
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.input:focus,
+.input:active {
+  border: 2px solid var(--color-dark-blue);
+}
