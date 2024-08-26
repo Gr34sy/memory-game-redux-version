@@ -45,10 +45,10 @@
 }
 
 /* menu */
-.button--menu {
+.button--big {
   font-size: 1.7rem;
   background-color: var(--color-orange);
 }
-.button--menu:hover {
+.button--big:hover {
   background-color: var(--color-light-orange);
 }

@@ -1,17 +1,19 @@
 // styles
 import styles from "./game-board.module.css";
+// types
+import { board } from "../../../../lib/settingsTypes";
 // components
 import GameField from "./game-field/GameField";
 
 type GameBoardProps = {
-  grid: "g4" | "g6";
+  board: board;
   fields: string[];
 };
 
-const GameBoard = ({ grid, fields }: GameBoardProps) => {
-  const fieldSize = grid === "g6" ? "small" : "big";
+const GameBoard = ({ board, fields }: GameBoardProps) => {
+  const fieldSize = board === "g6" ? "small" : "big";
 
-  const fieldsToRender = grid === "g4" ? fields.slice(0, 8) : fields;
+  const fieldsToRender = board === "g4" ? fields.slice(0, 8) : fields;
 
   function renderFields(array: string[]) {
     return array.map((item: string, i: number) => {
@@ -34,7 +36,7 @@ const GameBoard = ({ grid, fields }: GameBoardProps) => {
   }
 
   return (
-    <div className={`${styles.gameboard} ${styles[grid]}`}>
+    <div className={`${styles.gameboard} ${styles[board]}`}>
       {renderFields(fieldsToRender)}
       {renderUndiscoveredFields(fieldsToRender)}
     </div>

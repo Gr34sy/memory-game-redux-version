@@ -21,19 +21,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
-  const GameStart = () => {
-    return (
-      <div className={styles["start-game-container"]}>
-        <div className={styles["return-button"]}>
-          <Button buttonType="secondary" onClick={() => setShowOverlay(false)}>
-            Return
-          </Button>
-        </div>
-        <StartWindow />
-      </div>
-    );
-  };
-
   return (
     <>
       <nav className={styles.navbar}>
@@ -57,7 +44,9 @@ const Navbar = () => {
             <Button
               buttonType="secondary"
               onClick={() => {
-                setOverlayContent(<GameStart />);
+                setOverlayContent(
+                  <StartWindow backAction={() => setShowOverlay(false)} />
+                );
                 setShowOverlay(true);
               }}
             >
@@ -73,8 +62,14 @@ const Navbar = () => {
               setOverlayContent(
                 <MobileMenu
                   resume={() => setShowOverlay(false)}
-                  restart={() => navigate("/game")}
-                  newGame={() => setOverlayContent(<GameStart />)}
+                  restart={() => {
+                    setShowOverlay(false);
+                  }}
+                  newGame={() =>
+                    setOverlayContent(
+                      <StartWindow backAction={() => setShowOverlay(false)} />
+                    )
+                  }
                 />
               );
               setShowOverlay(true);

@@ -23,13 +23,6 @@
   }
 }
 
-.start-game-container {
-  display: grid;
-}
-.return-button {
-  margin-left: auto;
-}
-
 .mobile-menu-button {
   display: block;
 }

@@ -15,7 +15,7 @@ const Gamepage = () => {
       <main className={styles.gamepage}>
         <Navbar />
 
-        <GameBoard grid="g6" fields={natureIcons} />
+        <GameBoard board="g6" fields={natureIcons} />
         <GamePanel />
       </main>
     </div>

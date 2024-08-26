@@ -20,5 +20,10 @@
 }
 
 .overlay-padding {
-  padding: 2rem;
+  padding: 0.8rem;
+}
+@media (min-width: 300px) {
+  .overlay-padding {
+    padding: 2rem;
+  }
 }

@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.back-button {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-black);
+  justify-self: end;
+  background-color: transparent;
+  border: none;
+}
+.back-button:hover {
+  cursor: pointer;
+}

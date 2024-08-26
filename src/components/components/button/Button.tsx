@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef } from "react";
 import styles from "./button.module.css";
 
 type ButtonProps = Omit<ComponentPropsWithoutRef<"button">, "className"> & {
-  buttonType: "primary" | "secondary" | "selection" | "menu";
+  buttonType: "primary" | "secondary" | "selection" | "big";
   isActive?: boolean;
 };
 
