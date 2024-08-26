@@ -26,6 +26,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
             type="text"
             placeholder="Name"
             name="p1"
+            maxLength={20}
             className={styles.input}
           />
         </SettingsBox>
@@ -36,6 +37,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
               type="text"
               placeholder="Name"
               name="p2"
+              maxLength={20}
               className={styles.input}
             />
           </SettingsBox>
@@ -47,6 +49,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
               type="text"
               placeholder="Name"
               name="p3"
+              maxLength={20}
               className={styles.input}
             />
           </SettingsBox>
@@ -58,6 +61,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
               type="text"
               placeholder="Name"
               name="p4"
+              maxLength={20}
               className={styles.input}
             />
           </SettingsBox>
@@ -145,7 +149,9 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
         </Button>
       </SettingsBox>
 
-      <Button buttonType="big">Start Game</Button>
+      <Button buttonType="big" type="submit">
+        Start Game
+      </Button>
     </form>
   );
 };
