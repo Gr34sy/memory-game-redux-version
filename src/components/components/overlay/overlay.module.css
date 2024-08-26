@@ -13,7 +13,7 @@
 .overlay-window {
   z-index: 1;
   background-color: var(--color-white);
-  width: min(100% - 1.5rem, 800px);
+  width: min(100% - 1.5rem, 700px);
   margin-inline: auto;
 
   border-radius: 1rem;

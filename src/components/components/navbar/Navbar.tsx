@@ -70,7 +70,13 @@ const Navbar = () => {
           <Button
             buttonType="secondary"
             onClick={() => {
-              setOverlayContent(<MobileMenu />);
+              setOverlayContent(
+                <MobileMenu
+                  resume={() => setShowOverlay(false)}
+                  restart={() => navigate("/game")}
+                  newGame={() => setOverlayContent(<GameStart />)}
+                />
+              );
               setShowOverlay(true);
             }}
           >
