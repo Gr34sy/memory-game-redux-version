@@ -1,7 +1,15 @@
-import styles from "./theme-settings.module.css";
+// styles
+import styles from "./theme-dropdown.module.css";
+// types
+import { themes } from "../../../../../lib/settingsTypes";
 
-const ThemeDropdown = () => {
-  return <div></div>;
+type ThemeDropdownProps = {
+  action: (value: themes) => void;
+  themes: themes[];
+};
+
+const ThemeDropdown = ({ action, themes }: ThemeDropdownProps) => {
+  return <div>{themes.map((theme) => theme)}</div>;
 };
 
 export default ThemeDropdown;

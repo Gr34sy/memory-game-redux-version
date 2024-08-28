@@ -5,5 +5,18 @@ export type playerNames = {
   p3?: string;
   p4?: string;
 };
-export type theme = "numbers" | "icons" | "uncategorized";
+export type themes =
+  | "random"
+  | "numbers"
+  | "letters"
+  | "uncategorized"
+  | "polish politics"
+  | "brands"
+  | "electronics"
+  | "entertainment"
+  | "nature"
+  | "space"
+  | "medicine"
+  | "military";
+
 export type board = "g4" | "g6";

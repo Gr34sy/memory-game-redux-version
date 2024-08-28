@@ -1,11 +1,14 @@
 // styles
 import styles from "./start-window.module.css";
 
+// lib utilities
+import avialableThemes from "../../../lib/avialableThemes";
+
 // types
 import {
   playerAmount,
   playerNames,
-  theme,
+  themes,
   board,
 } from "../../../lib/settingsTypes";
 
@@ -19,11 +22,15 @@ import { useState } from "react";
 
 const StartWindow = ({ backAction }: { backAction: () => void }) => {
   const [playerAmount, setPlayerAmount] = useState<playerAmount>(1);
-  const [theme, setTheme] = useState<theme>("numbers");
+  const [theme, setTheme] = useState<themes>("numbers");
   const [board, setBoard] = useState<board>("g4");
 
   const INITIAL_PLAYERS = { p1: "" };
   const [playerNames, setPlayerNames] = useState<playerNames>(INITIAL_PLAYERS);
+
+  function handleThemeChange(value: themes){
+    setTheme(value);
+  };
 
   function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
@@ -48,18 +55,12 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
       <SettingsBox label="Select Theme" bigItems>
         <Button
           buttonType="selection"
-          onClick={() => setTheme("numbers")}
-          isActive={theme === "numbers"}
+          onClick={() => setTheme("random")}
+          isActive={theme === "random"}
         >
-          Numbers
+          Random
         </Button>
-        <Button
-          buttonType="selection"
-          onClick={() => setTheme("icons")}
-          isActive={theme === "icons"}
-        >
-          Icons
-        </Button>
+        <ThemeDropdown action={handleThemeChange} themes={avialableThemes} />
       </SettingsBox>
 
       <SettingsBox label="Number of Players">
