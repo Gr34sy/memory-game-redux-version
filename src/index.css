@@ -41,3 +41,14 @@ h2,
 h3 {
   font-weight: 700;
 }
+
+.custom-input {
+  border: 2px solid var(--color-grey);
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.custom-input:focus,
+.custom-input:active {
+  border: 2px solid var(--color-dark-blue);
+}

@@ -13,6 +13,6 @@ const avialableThemes: themes[] = [
   "space",
   "medicine",
   "military",
-] as const;
+];
 
 export default avialableThemes;
