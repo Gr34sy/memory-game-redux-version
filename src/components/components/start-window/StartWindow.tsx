@@ -25,10 +25,6 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
   const [theme, setTheme] = useState<themes>("numbers");
   const [board, setBoard] = useState<board>("g4");
 
-  function handleThemeChange(value: themes) {
-    setTheme(value);
-  }
-
   function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
 
@@ -49,7 +45,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
         Back
       </button>
 
-      {/* <Theme setTheme={setTheme} /> */}
+      <Theme setTheme={setTheme} />
 
       <Players
         setPlayerAmount={setPlayerAmount}
@@ -62,7 +58,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
 
       <Button
         buttonType="big"
-        type="submit"
+        // type="submit"
         onClick={() => {
           console.log({
             theme: theme,

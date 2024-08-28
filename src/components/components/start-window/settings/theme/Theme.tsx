@@ -12,34 +12,48 @@ import avialableThemes from "../../../../../lib/avialableThemes";
 import Button from "../../../button/Button";
 import SettingsBox from "../settings-box/SettingsBox";
 
-// Theme Dropdown Component
-type ThemeDropdownProps = {
-  action: (value: themes) => void;
-  themes: themes[];
-};
+// hooks
+import { useState } from "react";
 
-const ThemeDropdown = ({ action, themes }: ThemeDropdownProps) => {
-  return (
-    <div>
-      <Button
-        buttonType="selection"
-        onClick={() => {}}
-        // isActive={theme === "random"}
-      >
-        Random
-      </Button>
-      {themes.map((theme) => theme)}
-    </div>
-  );
+type ThemeProps = {
+  setTheme: Dispatch<SetStateAction<themes>>;
 };
-
-// Theme Component
-type ThemeProps = { setTheme: Dispatch<SetStateAction<themes>> };
 
 const Theme = ({ setTheme }: ThemeProps) => {
+  const [activeTheme, setActiveTheme] = useState(avialableThemes[0]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  function handleMenuClick(theme: themes) {
+    setActiveTheme(theme);
+    setShowDropdown(false);
+    setTheme(theme);
+  }
+
   return (
-    <SettingsBox label="Select Theme" bigItems>
-      <ThemeDropdown action={setTheme} themes={avialableThemes} />
+    <SettingsBox label="Theme" bigItems>
+      <div className={styles["dropdown-thumb"]}>
+        <Button
+          buttonType="selection"
+          isActive={true}
+          onClick={() => setShowDropdown((prev) => !prev)}
+        >
+          {activeTheme}
+        </Button>
+
+        {showDropdown && (
+          <div className={styles["dropdown-menu"]}>
+            {avialableThemes.map((theme) => (
+              <div
+                key={`dropdown-menu-${theme}`}
+                className={styles["dropdown-item"]}
+                onClick={() => handleMenuClick(theme)}
+              >
+                {theme}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </SettingsBox>
   );
 };
