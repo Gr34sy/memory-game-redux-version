@@ -36,7 +36,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
   return (
     <form className={styles.grid}>
       <button
-        className={styles["back-button"]}
+        className="back-button"
         onClick={(e) => {
           backAction();
           e.preventDefault();

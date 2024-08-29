@@ -52,3 +52,15 @@ h3 {
 .custom-input:active {
   border: 2px solid var(--color-dark-blue);
 }
+
+.back-button {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-black);
+  justify-self: end;
+  background-color: transparent;
+  border: none;
+}
+.back-button:hover {
+  cursor: pointer;
+}
