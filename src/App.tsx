@@ -1,3 +1,6 @@
+// redux
+import { Provider } from "react-redux";
+import store from "./lib/redux/store";
 
 // routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -9,15 +12,18 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 library.add(fas, fab);
+
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          <Route index element={<Homepage />} />
-          <Route path="/game" element={<Gamepage />} />
-        </Route>
-      </Routes>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Homepage />} />
+            <Route path="/game" element={<Gamepage />} />
+          </Route>
+        </Routes>
+      </Provider>
     </BrowserRouter>
   );
 }
