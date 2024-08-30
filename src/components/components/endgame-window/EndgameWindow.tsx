@@ -1,12 +1,15 @@
 import styles from "./endgame.module.css";
+// components
 import EndButtons from "./end-buttons/EndButtons";
 import EndHeader from "./end-header/EndHeader";
+import EndTile from "./end-tiles/EndTiles";
 
 type EndGameWindowProps = {
   backAction: () => void;
   players: string[];
+  title: string;
 };
-const EndgameWindow = ({ backAction, players }: EndGameWindowProps) => {
+const EndgameWindow = ({ backAction, players, title }: EndGameWindowProps) => {
   return (
     <div className={styles.endgame}>
       <button
@@ -19,7 +22,20 @@ const EndgameWindow = ({ backAction, players }: EndGameWindowProps) => {
         Back
       </button>
 
-      <EndHeader title="It's a tie!" />
+      <EndHeader title={title} />
+
+      {players
+        .map((player, i) => {
+          return (
+            <EndTile
+              key={player}
+              label={player}
+              statistic={`${i} Pairs`}
+              isWinner={i > 2}
+            />
+          );
+        })
+        .reverse()}
 
       <EndButtons />
     </div>

@@ -41,6 +41,7 @@ const Navbar = () => {
               onClick={() => {
                 setOverlayContent(
                   <EndgameWindow
+                    title="You did it!"
                     backAction={() => setShowOverlay(false)}
                     players={["Player 1", "Player 2", "Player 3", "Player 4"]}
                   />
