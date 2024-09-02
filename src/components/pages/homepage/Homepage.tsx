@@ -2,10 +2,12 @@
 import styles from "./homepage.module.css";
 // components
 import { Link } from "react-router-dom";
+import Button from "../../components/button/Button";
 // hooks and utils
 import { useSelector } from "react-redux";
 import { RootState }  from "../../../lib/redux/store";
-import { settings } from "../../../lib/settingsTypes";
+import { settings, themes } from "../../../lib/settingsTypes";
+import generateBoard from "../../../lib/game-handlers/generateBoard";
 
 const Homepage = () => {
   const settings: settings = useSelector((state: RootState) => state.settings.value);
@@ -15,7 +17,7 @@ const Homepage = () => {
     <main className={styles.homepage}>
       <div>Home</div>
 
-        {gameRunning ? "y" : "n"}
+        <Button buttonType="primary" onClick={() => generateBoard("uncategorized","g6")}>Test</Button>
 
 
         <div>

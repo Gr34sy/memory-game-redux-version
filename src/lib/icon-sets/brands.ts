@@ -1,4 +1,4 @@
-const brandsIcons = [
+const brandIcons = [
   "fa-brands fa-tiktok",
   "fa-brands fa-facebook",
   "fa-brands fa-instagram",
@@ -19,4 +19,4 @@ const brandsIcons = [
   "fa-brands fa-discord",
 ];
 
-export default brandsIcons;
+export default brandIcons;
