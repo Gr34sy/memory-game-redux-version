@@ -11,13 +11,15 @@ import generateBoard from "../../../lib/game-handlers/generateBoard";
 
 const Homepage = () => {
   const settings: settings = useSelector((state: RootState) => state.settings.value);
-  const gameRunning: boolean = useSelector((state: RootState) => state.game.isRunning) 
+  const gameRunning: boolean = useSelector((state: RootState) => state.game.isRunning);
+  
+  const board = generateBoard("uncategorized","g6");
 
   return (
     <main className={styles.homepage}>
       <div>Home</div>
 
-        <Button buttonType="primary" onClick={() => generateBoard("uncategorized","g6")}>Test</Button>
+        <Button buttonType="primary" onClick={() => console.log(board)}>Test</Button>
 
 
         <div>

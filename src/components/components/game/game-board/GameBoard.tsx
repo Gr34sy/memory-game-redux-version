@@ -13,32 +13,10 @@ type GameBoardProps = {
 const GameBoard = ({ board, fields }: GameBoardProps) => {
   const fieldSize = board === "g6" ? "small" : "big";
 
-  const fieldsToRender = board === "g4" ? fields.slice(0, 8) : fields;
-
-  function renderFields(array: string[]) {
-    return array.map((item: string, i: number) => {
-      return (
-        <GameField size={fieldSize} content={item} status="disabled" key={i} />
-      );
-    });
-  }
-  function renderUndiscoveredFields(array: string[]) {
-    return array.map((item: string, i: number) => {
-      return (
-        <GameField
-          size={fieldSize}
-          content={item}
-          status="undiscovered"
-          key={i}
-        />
-      );
-    });
-  }
 
   return (
     <div className={`${styles.gameboard} ${styles[board]}`}>
-      {renderFields(fieldsToRender)}
-      {renderUndiscoveredFields(fieldsToRender)}
+      {fields.map((field, i) => <GameField size={fieldSize} content={field} status="disabled" key={`gamefield-${i}`} />)}
     </div>
   );
 };

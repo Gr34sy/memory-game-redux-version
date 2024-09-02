@@ -16,7 +16,6 @@ import generateRandomNum from "../generateRandomNum";
 import { board, themes } from "../settingsTypes";
 
 
-
 function getIcons(theme: themes){
     let icons;
     
@@ -88,21 +87,34 @@ function getIcons(theme: themes){
 function generateBoard(theme: themes, boardType: board){
     const arraySize =  Math.pow(Number(boardType.slice(1)), 2);
 
-    const icons = getIcons(theme);
+    // getting the icon set
+    let icons = getIcons(theme);
     const iconsToUse : string[] = [];
     for(let i = 0; i < (arraySize / 2); i++){
-        let randomIcon = icons[generateRandomNum(icons.length)];
-        while(iconsToUse.includes(randomIcon)){
-            randomIcon = icons[generateRandomNum(icons.length)]
-        }
-        iconsToUse.push(randomIcon)
+        const randomIcon = icons[generateRandomNum(icons.length)];
+        iconsToUse.push(randomIcon);
+        icons = icons.filter((icon) => icon !== randomIcon)
     }
-    console.log(iconsToUse);
 
-    const board = Array(arraySize).fill({});
+    // creating board array of the given length and  creating array with avialable positions
+    const board = Array(arraySize).fill("");
+    let avialablePositions: number[] = [];
+    for(let i = 0; i < board.length; i++){
+        avialablePositions.push(i);
+    };
 
-    for(let i = 0; i < arraySize; i++){
-    }
+    // adding each icon name twice to the board array in random place
+    iconsToUse.forEach((icon) => {
+        const pos1 = avialablePositions[generateRandomNum(avialablePositions.length)];
+        board[pos1] = icon;
+        avialablePositions = avialablePositions.filter((pos) => pos !== pos1);
+
+        const pos2 = avialablePositions[generateRandomNum(avialablePositions.length)];
+        board[pos2] = icon;
+        avialablePositions = avialablePositions.filter((pos) => pos !== pos2);
+    });
+
+    return board;
 } 
 
 export default generateBoard;

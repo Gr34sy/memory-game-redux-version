@@ -6,16 +6,19 @@ import Navbar from "../../components/navbar/Navbar";
 import GameBoard from "../../components/game/game-board/GameBoard";
 import GamePanel from "../../components/game/game-panel/GamePanel";
 
-// icons
-import natureIcons from "../../../lib/icon-sets/nature";
+// utils
+import generateBoard from "../../../lib/game-handlers/generateBoard";
 
 const Gamepage = () => {
+  const boardSize = "g6"
+  const board = generateBoard("uncategorized", boardSize)
+
   return (
     <div>
       <main className={styles.gamepage}>
         <Navbar />
 
-        <GameBoard board="g6" fields={natureIcons} />
+        <GameBoard board={boardSize} fields={board} />
         <GamePanel />
       </main>
     </div>
