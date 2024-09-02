@@ -12,10 +12,12 @@ import {
 import Button from "../button/Button";
 import Board from "./settings/Board";
 import Players from "./settings/Players";
-
-// hooks
-import { useState } from "react";
 import Theme from "./settings/theme/Theme";
+
+// hooks and utils
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSettings } from "../../../lib/redux/slices/settingsSlice";
 
 const StartWindow = ({ backAction }: { backAction: () => void }) => {
   const INITIAL_PLAYER_NAMES = { p1: "", p2: "", p3: "", p4: "" };
@@ -24,6 +26,8 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
   const [playerAmount, setPlayerAmount] = useState<playerAmount>(1);
   const [theme, setTheme] = useState<themes>("numbers");
   const [board, setBoard] = useState<board>("g4");
+
+  const dispatch = useDispatch();
 
   function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
@@ -59,15 +63,15 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
       <Button
         buttonType="big"
         // type="submit"
-        onClick={() => {
-          console.log({
+        onClick={(e) => {
+          dispatch(setSettings({
             theme: theme,
             players: {
               amount: playerAmount,
-              ...playerNames,
+              names: playerNames,
             },
             board: board,
-          });
+          }));
         }}
       >
         Start Game

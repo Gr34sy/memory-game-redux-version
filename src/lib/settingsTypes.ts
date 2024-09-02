@@ -20,3 +20,12 @@ export type themes =
   | "military";
 
 export type board = "g4" | "g6";
+
+export type settings = {
+  players: {
+    amount: playerAmount;
+    names: playerNames;
+  },
+  theme: themes;
+  board: board;
+}
