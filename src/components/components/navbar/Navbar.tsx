@@ -4,9 +4,11 @@ import styles from "./navbar.module.css";
 // logo
 import logo from "../../../assets/logo.svg";
 
-// hooks
+// hooks and utils
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setRunning } from "../../../lib/redux/slices/gameSlice";
 
 // components
 import Button from "../button/Button";
@@ -21,6 +23,7 @@ const Navbar = () => {
   const [overlayContent, setOverlayContent] = useState(INITIAL_CONTENT);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -39,14 +42,8 @@ const Navbar = () => {
             <Button
               buttonType="primary"
               onClick={() => {
-                setOverlayContent(
-                  <EndgameWindow
-                    title="You did it!"
-                    backAction={() => setShowOverlay(false)}
-                    players={["Player 1", "Player 2", "Player 3", "Player 4"]}
-                  />
-                );
-                setShowOverlay(true);
+                dispatch(setRunning(false))
+                setShowOverlay(false);
               }}
             >
               Restart

@@ -18,6 +18,7 @@ import Theme from "./settings/theme/Theme";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSettings } from "../../../lib/redux/slices/settingsSlice";
+import { setRunning } from "../../../lib/redux/slices/gameSlice";
 
 const StartWindow = ({ backAction }: { backAction: () => void }) => {
   const INITIAL_PLAYER_NAMES = { p1: "", p2: "", p3: "", p4: "" };
@@ -72,6 +73,8 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
             },
             board: board,
           }));
+
+          dispatch(setRunning(true));
         }}
       >
         Start Game

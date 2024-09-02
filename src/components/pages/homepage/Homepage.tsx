@@ -9,12 +9,13 @@ import { settings } from "../../../lib/settingsTypes";
 
 const Homepage = () => {
   const settings: settings = useSelector((state: RootState) => state.settings.value);
+  const gameRunning: boolean = useSelector((state: RootState) => state.game.isRunning) 
 
   return (
     <main className={styles.homepage}>
       <div>Home</div>
 
-  
+        {gameRunning ? "y" : "n"}
 
 
         <div>
