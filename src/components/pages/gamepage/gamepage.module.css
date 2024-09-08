@@ -2,7 +2,6 @@
   min-height: 96dvh;
   width: min(100% - 1rem, 1400px);
   margin-inline: auto;
-  padding-bottom: 2rem;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
