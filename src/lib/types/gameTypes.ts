@@ -12,8 +12,6 @@ export type gamefield = {
 export type game = {
   isRunning: boolean;
   activePlayer: activePlayer;
-  moveCount?: number;
-  startTime?: Date;
   activeFields: activeFields;
   board: gamefield[];
 };

@@ -6,7 +6,7 @@ import Button from "../../components/button/Button";
 // hooks and utils
 import { useSelector } from "react-redux";
 import { RootState } from "../../../lib/redux/store";
-import { settings, themes } from "../../../lib/types/settingsTypes";
+import { settings } from "../../../lib/types/settingsTypes";
 import generateBoard from "../../../lib/game-handlers/generateBoard";
 
 const Homepage = () => {
@@ -37,7 +37,7 @@ const Homepage = () => {
 
       <br />
 
-      <Link to="/game">Game</Link>
+      {gameRunning ? <Link to="/game">Game</Link> : "create"}
     </main>
   );
 };
