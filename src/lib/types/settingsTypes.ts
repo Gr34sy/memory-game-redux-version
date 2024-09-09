@@ -25,7 +25,7 @@ export type settings = {
   players: {
     amount: playerAmount;
     names: playerNames;
-  },
+  };
   theme: themes;
   board: board;
-}
+};

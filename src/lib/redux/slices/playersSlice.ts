@@ -16,9 +16,12 @@ export const playersSlice = createSlice({
       state.value = action.payload;
     },
     incrementPlayerPairs: (state, action: PayloadAction<number>) => {
-      if(state.value[action.payload]) {
+      if (state.value[action.payload]) {
         state.value[action.payload].pairs++;
       }
     },
   },
 });
+
+export const { setPlayers, incrementPlayerPairs } = playersSlice.actions;
+export default playersSlice.reducer;

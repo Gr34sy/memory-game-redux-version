@@ -7,18 +7,22 @@ import {
   themes,
   board,
 } from "../../../lib/types/settingsTypes";
-
 // components
 import Button from "../button/Button";
 import Board from "./settings/Board";
 import Players from "./settings/Players";
 import Theme from "./settings/theme/Theme";
-
 // hooks and utils
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSettings } from "../../../lib/redux/slices/settingsSlice";
 import { setRunning } from "../../../lib/redux/slices/gameSlice";
+import { setPlayers } from "../../../lib/redux/slices/playersSlice";
+import { setGameboard } from "../../../lib/redux/slices/gameSlice";
+
+// game handlers
+import generateBoard from "../../../lib/game-handlers/generateBoard";
+import generatePlayers from "../../../lib/game-handlers/generatePlayers";
 
 const StartWindow = ({ backAction }: { backAction: () => void }) => {
   const INITIAL_PLAYER_NAMES = { p1: "", p2: "", p3: "", p4: "" };
@@ -63,7 +67,7 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
 
       <Button
         buttonType="big"
-        // type="submit"
+        //"submit"
         onClick={(e) => {
           dispatch(
             setSettings({
@@ -76,6 +80,11 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
             })
           );
 
+          const generatedPlayers = generatePlayers(playerAmount, playerNames);
+          console.log(generatedPlayers);
+          const generatedBoard = generateBoard(theme, board);
+          dispatch(setPlayers(generatedPlayers));
+          dispatch(setGameboard(generatedBoard));
           dispatch(setRunning(true));
         }}
       >

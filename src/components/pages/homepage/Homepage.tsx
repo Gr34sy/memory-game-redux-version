@@ -1,15 +1,21 @@
 // styles
 import styles from "./homepage.module.css";
 // components
-import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
-// hooks and utils
-import { useSelector } from "react-redux";
+import Overlay from "../../components/overlay/Overlay";
+import StartWindow from "../../components/start-window/StartWindow";
+// types
 import { RootState } from "../../../lib/redux/store";
 import { settings } from "../../../lib/types/settingsTypes";
-import generateBoard from "../../../lib/game-handlers/generateBoard";
+// hooks and utils
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Homepage = () => {
+  const [showOverlay, setShowOverlay] = useState(false);
+  const navigate = useNavigate();
+
   const settings: settings = useSelector(
     (state: RootState) => state.settings.value
   );
@@ -17,15 +23,19 @@ const Homepage = () => {
     (state: RootState) => state.game.isRunning
   );
 
-  const board = generateBoard("uncategorized", "g6");
-
   return (
     <main className={styles.homepage}>
       <div>Home</div>
 
-      <Button buttonType="primary" onClick={() => console.log(board)}>
-        Test
-      </Button>
+      {gameRunning ? (
+        <Button buttonType="primary" onClick={() => navigate("/game")}>
+          Game
+        </Button>
+      ) : (
+        <Button buttonType="primary" onClick={() => setShowOverlay(true)}>
+          Create
+        </Button>
+      )}
 
       <div>
         <h3>Current Settings:</h3>
@@ -37,7 +47,11 @@ const Homepage = () => {
 
       <br />
 
-      {gameRunning ? <Link to="/game">Game</Link> : "create"}
+      {showOverlay && (
+        <Overlay>
+          <StartWindow backAction={() => setShowOverlay(false)} />
+        </Overlay>
+      )}
     </main>
   );
 };

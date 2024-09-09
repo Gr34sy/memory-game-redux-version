@@ -39,5 +39,11 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { setRunning } = gameSlice.actions;
+export const {
+  setRunning,
+  setActivePlayer,
+  setActiveField,
+  setGameboard,
+  setField,
+} = gameSlice.actions;
 export default gameSlice.reducer;
