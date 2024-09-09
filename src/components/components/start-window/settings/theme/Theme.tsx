@@ -2,7 +2,7 @@
 import styles from "./theme.module.css";
 
 // types
-import { themes } from "../../../../../lib/settingsTypes";
+import { themes } from "../../../../../lib/types/settingsTypes";
 import { Dispatch, SetStateAction } from "react";
 
 // lib utilities

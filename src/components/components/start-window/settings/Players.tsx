@@ -1,5 +1,5 @@
 // types
-import { playerAmount, playerNames } from "../../../../lib/settingsTypes";
+import { playerAmount, playerNames } from "../../../../lib/types/settingsTypes";
 import { Dispatch, SetStateAction } from "react";
 
 // components

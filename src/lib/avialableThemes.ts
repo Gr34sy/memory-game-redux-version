@@ -1,4 +1,4 @@
-import { themes } from "./settingsTypes";
+import { themes } from "./types/settingsTypes";
 
 const avialableThemes: themes[] = [
   "random",

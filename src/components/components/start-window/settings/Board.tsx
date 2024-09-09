@@ -1,5 +1,5 @@
 // types
-import { board } from "../../../../lib/settingsTypes";
+import { board } from "../../../../lib/types/settingsTypes";
 import { Dispatch, SetStateAction } from "react";
 // components
 import SettingsBox from "./settings-box/SettingsBox";

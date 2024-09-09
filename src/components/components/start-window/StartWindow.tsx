@@ -6,7 +6,7 @@ import {
   playerNames,
   themes,
   board,
-} from "../../../lib/settingsTypes";
+} from "../../../lib/types/settingsTypes";
 
 // components
 import Button from "../button/Button";
@@ -65,14 +65,16 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
         buttonType="big"
         // type="submit"
         onClick={(e) => {
-          dispatch(setSettings({
-            theme: theme,
-            players: {
-              amount: playerAmount,
-              names: playerNames,
-            },
-            board: board,
-          }));
+          dispatch(
+            setSettings({
+              theme: theme,
+              players: {
+                amount: playerAmount,
+                names: playerNames,
+              },
+              board: board,
+            })
+          );
 
           dispatch(setRunning(true));
         }}
