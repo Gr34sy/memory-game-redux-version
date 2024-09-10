@@ -1,4 +1,5 @@
 // styles
+import { gamefield } from "../../../../../lib/types/gameTypes";
 import styles from "./game-field.module.css";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

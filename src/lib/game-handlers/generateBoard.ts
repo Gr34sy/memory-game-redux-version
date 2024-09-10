@@ -14,6 +14,7 @@ import numberIcons from "../icon-sets/numbers";
 // utils
 import generateRandomNum from "../generateRandomNum";
 import { board, themes } from "../types/settingsTypes";
+import { gamefield } from "../types/gameTypes";
 
 function getIcons(theme: themes) {
   let icons;
@@ -83,7 +84,7 @@ function getIcons(theme: themes) {
   return icons;
 }
 
-function generateBoard(theme: themes, boardType: board) {
+function generateBoard(theme: themes, boardType: board): gamefield[] {
   const arraySize = Math.pow(Number(boardType.slice(1)), 2);
 
   // getting the icon set
@@ -115,7 +116,12 @@ function generateBoard(theme: themes, boardType: board) {
     avialablePositions = avialablePositions.filter((pos) => pos !== pos2);
   });
 
-  return board;
+  return board.map((field) => {
+    return {
+      name: field,
+      isDiscovered: false,
+    };
+  });
 }
 
 export default generateBoard;

@@ -81,7 +81,6 @@ const StartWindow = ({ backAction }: { backAction: () => void }) => {
           );
 
           const generatedPlayers = generatePlayers(playerAmount, playerNames);
-          console.log(generatedPlayers);
           const generatedBoard = generateBoard(theme, board);
           dispatch(setPlayers(generatedPlayers));
           dispatch(setGameboard(generatedBoard));
