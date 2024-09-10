@@ -1,6 +1,7 @@
 .gamepanel {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
   gap: 0.8rem;
 
   padding-block: 1.5rem;

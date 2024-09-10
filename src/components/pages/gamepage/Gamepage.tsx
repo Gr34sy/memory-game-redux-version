@@ -22,6 +22,7 @@ const Gamepage = () => {
         <Navbar />
 
         <GameBoard />
+
         <GamePanel />
       </main>
     </div>

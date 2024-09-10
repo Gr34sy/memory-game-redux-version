@@ -10,10 +10,12 @@ import GameField from "./game-field/GameField";
 import { useSelector } from "react-redux";
 
 const GameBoard = () => {
-  const boardSize = useSelector(
+  const boardSize: board = useSelector(
     (state: RootState) => state.settings.value.board
   );
-  const board = useSelector((state: RootState) => state.game.board);
+  const board: gamefield[] = useSelector(
+    (state: RootState) => state.game.board
+  );
   const fieldSize = boardSize === "g6" ? "small" : "big";
 
   return (
