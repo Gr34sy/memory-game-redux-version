@@ -3,24 +3,26 @@ import styles from "./game-board.module.css";
 // types
 import { board } from "../../../../lib/types/settingsTypes";
 import { gamefield } from "../../../../lib/types/gameTypes";
+import { RootState } from "../../../../lib/redux/store";
 // components
 import GameField from "./game-field/GameField";
+// hooks
+import { useSelector } from "react-redux";
 
-type GameBoardProps = {
-  boardSize: board;
-  fields: gamefield[];
-};
-
-const GameBoard = ({ boardSize, fields }: GameBoardProps) => {
+const GameBoard = () => {
+  const boardSize = useSelector(
+    (state: RootState) => state.settings.value.board
+  );
+  const board = useSelector((state: RootState) => state.game.board);
   const fieldSize = boardSize === "g6" ? "small" : "big";
 
   return (
     <div className={`${styles.gameboard} ${styles[boardSize]}`}>
-      {fields.map((field, i) => (
+      {board.map((field, i) => (
         <GameField
           size={fieldSize}
           content={field.name}
-          status="disabled"
+          status="active"
           key={`gamefield-${i}`}
         />
       ))}

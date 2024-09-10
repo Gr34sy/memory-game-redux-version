@@ -4,24 +4,24 @@ import styles from "./gamepage.module.css";
 import Navbar from "../../components/navbar/Navbar";
 import GameBoard from "../../components/game/game-board/GameBoard";
 import GamePanel from "../../components/game/game-panel/GamePanel";
+import { Navigate } from "react-router-dom";
 // hooks
 import { useSelector } from "react-redux";
-// utils
 import { RootState } from "../../../lib/redux/store";
 
 const Gamepage = () => {
-  const boardSize = useSelector(
-    (state: RootState) => state.settings.value.board
-  );
-  const board = useSelector((state: RootState) => state.game.board);
-  console.log(board);
+  const isGameRunning = useSelector((state: RootState) => state.game.isRunning);
+
+  if (!isGameRunning) {
+    return <Navigate replace to="/" />;
+  }
 
   return (
     <div>
       <main className={styles.gamepage}>
         <Navbar />
 
-        <GameBoard boardSize={boardSize} fields={board} />
+        <GameBoard />
         <GamePanel />
       </main>
     </div>
