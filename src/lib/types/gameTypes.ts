@@ -1,17 +1,25 @@
-import { playerAmount } from "./settingsTypes";
+export type activePlayer = 0 | 1 | 2 | 3;
+export type turn = {
+  player: activePlayer;
+  firstActiveField: number | null;
+  secondActiveField: number | null;
+};
 
-export type activePlayer = playerAmount;
-
-export type activeFields = [number | "none", number | "none"];
-
+export type gamefieldStatus = "active" | "disabled" | "undiscovered";
 export type gamefield = {
   name: string;
-  isDiscovered: boolean;
+  status: gamefieldStatus;
+};
+
+export type player = {
+  name: string;
+  pairs: number;
 };
 
 export type game = {
   isRunning: boolean;
-  activePlayer: activePlayer;
-  activeFields: activeFields;
+  turn: turn;
   board: gamefield[];
+  players: player[];
+  pairsLeft: number;
 };

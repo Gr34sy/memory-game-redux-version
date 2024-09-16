@@ -17,7 +17,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSettings } from "../../../lib/redux/slices/settingsSlice";
 import { setRunning } from "../../../lib/redux/slices/gameSlice";
-import { setPlayers } from "../../../lib/redux/slices/playersSlice";
+import { setPlayers } from "../../../lib/redux/slices/gameSlice";
 import { setGameboard } from "../../../lib/redux/slices/gameSlice";
 
 // game handlers

@@ -4,7 +4,7 @@ import styles from "./game-panel.module.css";
 import PlayerTile from "./player-tile/PlayerTile";
 // types
 import { RootState } from "../../../../lib/redux/store";
-import { player } from "../../../../lib/types/playerTypes";
+import { player } from "../../../../lib/types/gameTypes";
 import { activePlayer } from "../../../../lib/types/gameTypes";
 // hooks
 import { useSelector } from "react-redux";
@@ -12,10 +12,10 @@ import SoloModeTiles from "./solo-mode-tiles/SoloModeTiles";
 
 const GamePanel = () => {
   const activePlayerIndex: activePlayer = useSelector(
-    (state: RootState) => state.game.activePlayer
+    (state: RootState) => state.game.turn.player
   );
   const players: player[] = useSelector(
-    (state: RootState) => state.players.value
+    (state: RootState) => state.game.players
   );
   const activePlayer = players[activePlayerIndex];
 

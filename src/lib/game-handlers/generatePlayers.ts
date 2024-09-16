@@ -1,5 +1,5 @@
 import { playerAmount, playerNames } from "../types/settingsTypes";
-import { player } from "../types/playerTypes";
+import { player } from "../types/gameTypes";
 
 function generatePlayers(playerAmount: playerAmount, playerNames: playerNames) {
   const players: player[] = [];

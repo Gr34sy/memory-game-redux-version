@@ -119,7 +119,7 @@ function generateBoard(theme: themes, boardType: board): gamefield[] {
   return board.map((field) => {
     return {
       name: field,
-      isDiscovered: false,
+      status: "undiscovered",
     };
   });
 }

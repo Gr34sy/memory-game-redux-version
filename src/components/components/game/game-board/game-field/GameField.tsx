@@ -2,14 +2,17 @@
 import styles from "./game-field.module.css";
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// utils
+import { gamefieldStatus } from "../../../../../lib/types/gameTypes";
 
 type GameFieldProps = {
   size: "small" | "big";
   content: string;
-  status: "active" | "disabled" | "undiscovered";
+  status: gamefieldStatus;
+  onClick: () => void;
 };
 
-const GameField = ({ size, content, status }: GameFieldProps) => {
+const GameField = ({ size, content, status, onClick }: GameFieldProps) => {
   const isIconNeeded = content.startsWith("fa");
   const renderedContent = isIconNeeded ? (
     // @ts-ignore
@@ -19,7 +22,10 @@ const GameField = ({ size, content, status }: GameFieldProps) => {
   );
 
   return (
-    <div className={`${styles.gamefield} ${styles[size]} ${styles[status]}`}>
+    <div
+      className={`${styles.gamefield} ${styles[size]} ${styles[status]}`}
+      onClick={onClick}
+    >
       {status !== "undiscovered" && renderedContent}
     </div>
   );
