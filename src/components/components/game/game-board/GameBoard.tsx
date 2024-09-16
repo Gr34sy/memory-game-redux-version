@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setFirstActiveField } from "../../../../lib/redux/slices/gameSlice";
 import { setSecondActiveField } from "../../../../lib/redux/slices/gameSlice";
+import { useEffect } from "react";
 
 const GameBoard = () => {
   const boardSize: board = useSelector(
@@ -20,9 +21,21 @@ const GameBoard = () => {
     (state: RootState) => state.game.board
   );
   const turn: turn = useSelector((state: RootState) => state.game.turn);
+
   const fieldSize = boardSize === "g6" ? "small" : "big";
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (turn.firstActiveField !== null && turn.secondActiveField !== null) {
+      const timeout = setTimeout(() => {
+        dispatch(setFirstActiveField(null));
+        dispatch(setSecondActiveField(null));
+      }, 2000);
+
+      return clearTimeout(timeout);
+    }
+  }, [turn, dispatch]);
 
   function handleFieldClick(i: number, name: string): void {
     if (turn.firstActiveField === null) {
@@ -30,8 +43,7 @@ const GameBoard = () => {
     } else if (turn.secondActiveField === null) {
       dispatch(setSecondActiveField(i));
     } else {
-      dispatch(setFirstActiveField(null));
-      dispatch(setSecondActiveField(null));
+      return;
     }
   }
 
