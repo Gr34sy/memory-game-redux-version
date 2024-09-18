@@ -6,12 +6,17 @@ import { gamefield, turn } from "../../../../lib/types/gameTypes";
 import { RootState } from "../../../../lib/redux/store";
 // components
 import GameField from "./game-field/GameField";
-// hooks and utils
+// hooks
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setFirstActiveField } from "../../../../lib/redux/slices/gameSlice";
-import { setSecondActiveField } from "../../../../lib/redux/slices/gameSlice";
 import { useEffect } from "react";
+// game handlers
+import { setFirstActiveField } from "../../../../lib/redux/slices/gameSlice";
+import { passTurn } from "../../../../lib/redux/slices/gameSlice";
+import { setSecondActiveField } from "../../../../lib/redux/slices/gameSlice";
+import { incrementPlayerPairs } from "../../../../lib/redux/slices/gameSlice";
+import { decrementPairsLeft } from "../../../../lib/redux/slices/gameSlice";
+import { setFieldStatus } from "../../../../lib/redux/slices/gameSlice";
 
 const GameBoard = () => {
   const boardSize: board = useSelector(
@@ -21,29 +26,43 @@ const GameBoard = () => {
     (state: RootState) => state.game.board
   );
   const turn: turn = useSelector((state: RootState) => state.game.turn);
-
   const fieldSize = boardSize === "g6" ? "small" : "big";
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (turn.firstActiveField !== null && turn.secondActiveField !== null) {
-      // console.log(board[turn.firstActiveField]);
-      // console.log(board[turn.secondActiveField]);
       if (
         board[turn.firstActiveField].name === board[turn.secondActiveField].name
       ) {
-        console.log("Match");
+        dispatch(
+          setFieldStatus({ fieldId: turn.firstActiveField, status: "disabled" })
+        );
+        dispatch(
+          setFieldStatus({
+            fieldId: turn.secondActiveField,
+            status: "disabled",
+          })
+        );
+        dispatch(incrementPlayerPairs(turn.player));
+        dispatch(decrementPairsLeft());
+        console.log("Match action");
+
+        const timeout = setTimeout(() => {
+          dispatch(setFirstActiveField(null));
+          dispatch(setSecondActiveField(null));
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+      } else {
+        const timeout = setTimeout(() => {
+          dispatch(passTurn());
+        }, 2000);
+
+        return () => clearTimeout(timeout);
       }
-
-      const timeout = setTimeout(() => {
-        dispatch(setFirstActiveField(null));
-        dispatch(setSecondActiveField(null));
-      }, 2000);
-
-      return () => clearTimeout(timeout);
     }
-  }, [turn, board, dispatch]);
+  }, [turn]);
 
   function handleFieldClick(i: number, name: string): void {
     if (turn.firstActiveField === null) {

@@ -29,14 +29,13 @@ export const gameSlice = createSlice({
 
     // turn
     passTurn: (state) => {
-      if (state.turn.player === 3) {
+      state.turn.firstActiveField = null;
+      state.turn.secondActiveField = null;
+
+      if (state.turn.player === state.players.length - 1) {
         state.turn.player = 0;
-        state.turn.firstActiveField = null;
-        state.turn.secondActiveField = null;
       } else {
         state.turn.player++;
-        state.turn.firstActiveField = null;
-        state.turn.secondActiveField = null;
       }
     },
     setFirstActiveField: (state, action: PayloadAction<number | null>) => {
