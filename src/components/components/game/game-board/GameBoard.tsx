@@ -28,14 +28,22 @@ const GameBoard = () => {
 
   useEffect(() => {
     if (turn.firstActiveField !== null && turn.secondActiveField !== null) {
+      // console.log(board[turn.firstActiveField]);
+      // console.log(board[turn.secondActiveField]);
+      if (
+        board[turn.firstActiveField].name === board[turn.secondActiveField].name
+      ) {
+        console.log("Match");
+      }
+
       const timeout = setTimeout(() => {
         dispatch(setFirstActiveField(null));
         dispatch(setSecondActiveField(null));
       }, 2000);
 
-      return clearTimeout(timeout);
+      return () => clearTimeout(timeout);
     }
-  }, [turn, dispatch]);
+  }, [turn, board, dispatch]);
 
   function handleFieldClick(i: number, name: string): void {
     if (turn.firstActiveField === null) {
@@ -59,7 +67,9 @@ const GameBoard = () => {
               : field.status
           }
           key={`gamefield-${i}`}
-          onClick={() => handleFieldClick(i, field.name)}
+          onClick={() =>
+            turn.secondActiveField ? null : handleFieldClick(i, field.name)
+          }
         />
       ))}
     </div>
